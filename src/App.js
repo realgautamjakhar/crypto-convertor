@@ -3,8 +3,8 @@ import './App.css';
 
 function App() {
   const [cryptocurrencies, setcryptocurrencies] = useState([])
-  const [firstSelect, setfirstSelect] = useState(null)
-  const [secondSelect, setsecondSelect] = useState(null)
+  const [cryptoTo, setcryptoTo] = useState(null)
+  const [cryptoFrom, setcryptoFrom] = useState(null)
   const [amount, setamount] = useState(null)
   const [result, setresult] = useState(null)
   const fetchCrypto = async() =>{
@@ -20,50 +20,49 @@ function App() {
 
   useEffect(() => {
     fetchCrypto();
-  },[firstSelect,secondSelect])
+  },[cryptoFrom,cryptoTo])
 
-  const handleclick = (e) =>{
+  const handleChange = (e) =>{
     if(e.target.id === "select-one"){
-      setfirstSelect(e.target.value)
+      setcryptoFrom(e.target.value)
     }else if(e.target.id === "select-two"){
-      setsecondSelect(e.target.value)
+      setcryptoTo(e.target.value)
     }
   }
 
+  useEffect(() => {
+    if(cryptoFrom && cryptoTo) {
+      let option1 = document.querySelector(`#${cryptoFrom}`).getAttribute("data_price")
+      let option2 = document.querySelector(`#${cryptoTo}`).getAttribute("data_price")
+      setresult(((option1/option2)*amount).toFixed(2));
+    }
+  },[amount,cryptoFrom,cryptoTo])
   const convertamount = (e) =>{
     setamount(e.target.value)
   }
-  useEffect(() => {
-    if(firstSelect && secondSelect){
-      let option1 = document.querySelector(`#${firstSelect}`).getAttribute("data_price")
-      let option2 = document.querySelector(`#${secondSelect}`).getAttribute("data_price")
-      setresult(((option1/option2)*amount).toFixed(2));
-    }
-  },[amount,firstSelect,secondSelect])
-
   
   return (
     <div className="App">
       <section className='converter'>
         <h1>Crypto Converter</h1>
-        <select id='select-one' onClick={handleclick} onTouchEnd={handleclick}>
+        <select id='select-one' onChange={handleChange} >
           {cryptocurrencies.map(crypto => <option value={crypto.id} id={crypto.id} key={crypto.id} data_price={crypto.priceUsd}>{crypto.id}</option>)}
           </select>
-        <select id='select-two' onClick={handleclick} onTouchEnd={handleclick}>
+        <select id='select-two' onChange={handleChange} >
           {cryptocurrencies.map(crypto => <option value={crypto.id} id={crypto.id} key={crypto.id} data_price={crypto.priceUsd}>{crypto.id}</option>)}
           </select>
         
         <input type="text" id='useramount' onChange={convertamount}  placeholder="Amount"/>
         <section className='fromto'>
-        <p>{firstSelect}</p>
+        <p>{cryptoFrom}</p>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
         </svg>
-        <p>{secondSelect}</p>
+        <p>{cryptoTo}</p>
         </section>
         <section className='result'>
           <h2>{result}</h2>
-          <p>{secondSelect}</p>
+          <p>{cryptoTo}</p>
         </section>
       </section>
 
