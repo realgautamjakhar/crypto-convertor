@@ -1,38 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+  background: #252525;
   color: white;
 }
+h1,h2,h3,h4,h5,p{
+  font-family: 'Poppins', sans-serif;
 
-.App-link {
-  color: #61dafb;
+  margin: 0;
+}
+.converter {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  border-radius: 32px;
+  background: #252525;
+  box-shadow:  36px 36px 72px #222222,
+               -36px -36px 72px #282828;
+}
+select {
+  background-color: rgb(255, 255, 255,.8);
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 10px;
+  border: none;
+  border-radius: .5rem;
+  font-weight: 700;
+  outline-color: #39519a;
+
+}
+select-items{
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="text"]{
+  background-color: transparent;
+  border: none;
+  width: 350px;
+  color: white;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  padding: 5px;
+}
+input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+.fromto {
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
 }
