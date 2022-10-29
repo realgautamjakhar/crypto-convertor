@@ -20,22 +20,23 @@ h1,h2,h3,h4,h5,p{
   margin: 1rem;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  border-radius: 32px;
+  gap: 1rem;
+  max-width: 300px;
+  border-radius: 2rem;
   background: #252525;
-  box-shadow:  36px 36px 72px #222222,
-               -36px -36px 72px #282828;
+  box-shadow:  10px 10px 20px #1a1a1a,
+               -10px -10px 20px #303030;
 }
 select {
-  background-color: rgb(255, 255, 255,.8);
-  font-size: 20px;
+  background-color: rgb(255, 255, 255);
+  font-size: 15px;
   text-transform: uppercase;
-  padding: 10px;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 100%;
   border: none;
-  border-radius: .5rem;
-  font-weight: 700;
-  outline-color: #39519a;
-
+  
+  font-weight: 600;
 }
 select-items{
   position: absolute;
@@ -49,12 +50,13 @@ select-items{
 input[type="text"]{
   background-color: transparent;
   border: none;
-  width: 350px;
+  width: 100%;
   color: white;
   text-align: center;
   font-size: 2.5rem;
   font-weight: 600;
   padding: 5px;
+  outline: none;
 }
 input::placeholder{
   color: rgba(255, 255, 255, 0.7);
@@ -67,7 +69,18 @@ input::placeholder{
   justify-items: center;
   align-items: center;
   width: 100%;
-  font-size: 1rem;
+  text-align: center;
+  font-size: .75rem;
   text-transform: uppercase;
   font-weight: 600;
+}
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+.result h2 {
+  font-size: 2.5rem;
 }

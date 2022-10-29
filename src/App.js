@@ -47,9 +47,9 @@ function App() {
   return (
     <div className="App">
       <section className='converter'>
-        <select id='select-one' onClick={handleclick}>{cryptocurrencies.map(crypto => <option value={crypto.id} id={crypto.id} key={crypto.id} data_price={crypto.priceUsd}>{crypto.id}</option>)}</select>
-        <select id='select-two' onClick={handleclick}>{cryptocurrencies.map(crypto => <option value={crypto.id} id={crypto.id} key={crypto.id} data_price={crypto.priceUsd}>{crypto.id}</option>)}</select>
-        <input type="text" id='useramount' onChange={convertamount} placeholder="Amount"/>
+        <select id='select-one' onClick={handleclick} onTouchEnd={handleclick}>{cryptocurrencies.map(crypto => <option value={crypto.id} id={crypto.id} key={crypto.id} data_price={crypto.priceUsd}>{crypto.id}</option>)}</select>
+        <select id='select-two' onClick={handleclick} onTouchEnd={handleclick}>{cryptocurrencies.map(crypto => <option value={crypto.id} id={crypto.id} key={crypto.id} data_price={crypto.priceUsd}>{crypto.id}</option>)}</select>
+        <input type="text" id='useramount' onChange={convertamount}  placeholder="Amount"/>
         <section className='fromto'>
         <p>{firstSelect}</p>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -58,7 +58,10 @@ function App() {
 
         <p>{secondSelect}</p>
         </section>
-        <h2>{result} {secondSelect}</h2>
+        <section className='result'>
+        <h2>{result}</h2>
+        <p>{secondSelect}</p>
+        </section>
       </section>
 
     </div>
