@@ -27,6 +27,7 @@ h1,h2,h3,h4,h5,p{
   box-shadow:  10px 10px 20px #1a1a1a,
                -10px -10px 20px #303030;
 }
+
 select {
   background-color: rgb(255, 255, 255);
   font-size: 15px;
@@ -35,7 +36,6 @@ select {
   border-radius: 1rem;
   width: 100%;
   border: none;
-  
   font-weight: 600;
 }
 select-items{
